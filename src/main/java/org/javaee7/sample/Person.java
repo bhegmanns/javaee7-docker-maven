@@ -24,6 +24,10 @@ public class Person {
         this.name = name;
     }
     
+    /**
+     * Indicates that the current person hasn't got the name.
+     * @return true, is the person hasn't got a name
+     */
     public boolean hasNoName(){
     	return getName()==null || getName().trim().isEmpty();
     }
