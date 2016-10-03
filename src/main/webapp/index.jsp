@@ -8,6 +8,7 @@
     <body>
         <h1>Java EE 7 Docker Maven Sample!</h1>
         
-        GET all the <a href="${pageContext.request.contextPath}/resources/persons"/>persons</a>.
+        GET all the <a href="${pageContext.request.contextPath}/resources/persons"/>persons</a>.<br>
+        GET FIRST <a href="${pageContext.request.contextPath}/resources/persons/1">person 1</a>
     </body>
 </html>
