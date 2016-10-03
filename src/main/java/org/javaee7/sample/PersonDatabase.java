@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Singleton;
+import javax.ws.rs.NotAcceptableException;
 import javax.ws.rs.NotFoundException;
 
 /**
@@ -25,11 +26,25 @@ public class PersonDatabase {
                 new Person("Howard"), 
                 new Person("Bernadette"), 
                 new Person("Raj"), 
-                new Person("Priya"));
+                new Person("Priya")
+                ,new Person("Bernd")
+                ,new Person("Franziska")
+                ,new Person("Andrea")
+                );
     }
 
     public Person[] currentList() {
         return persons.toArray(new Person[0]);
+    }
+    
+    public int addPerson(String personname){
+    	Person person = new Person(personname);
+    	if (person.hasNoName() || persons.contains(person)){
+    		throw new NotAcceptableException("there's something wrong with person");
+    	}
+    	
+    	persons.add(person);
+    	return persons.size()-1;
     }
 
     public Person getPerson(int id) {
